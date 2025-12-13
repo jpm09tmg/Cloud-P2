@@ -1,5 +1,8 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
+
 import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
 import { redirect } from "next/navigation";

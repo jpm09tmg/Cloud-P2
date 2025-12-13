@@ -45,7 +45,13 @@ class DatabaseHelper:
         if not self.client:
             return
         try:
-            records = df.to_dict('records')[:100]
+            # Sample evenly across all diet types (20 per diet)
+            sample_per_diet = 20
+            sampled = df.groupby('Diet_type').head(sample_per_diet)
+            records = sampled.to_dict('records')
+            
+            print(f"Saving {len(records)} sampled recipes to Cosmos DB")
+            
             for idx, record in enumerate(records):
                 record['id'] = f"{record.get('Diet_type', 'unknown')}_{idx}"
                 record['diet_type'] = record.get('Diet_type', 'unknown')
@@ -53,8 +59,10 @@ class DatabaseHelper:
                     self.data_container.upsert_item(body=record)
                 except:
                     pass
-        except:
-            pass
+            
+            print(f"Saved {len(records)} recipes successfully")
+        except Exception as e:
+            print(f"Error saving data: {e}")
     
     def search_recipes(self, diet_type=None, keyword=None, page=1, page_size=10):
         if not self.client:

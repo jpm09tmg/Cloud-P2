@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
  
 const firebaseConfig = {
-  apiKey: "AIzaSyD87UKXcreHjVa46xZUqV-k1Lt-pWLYcWc",
-  authDomain: "cloud-p3-af4f9.firebaseapp.com",
-  projectId: "cloud-p3-af4f9",
-  storageBucket: "cloud-p3-af4f9.firebasestorage.app",
-  messagingSenderId: "655473857420",
-  appId: "1:655473857420:web:cad66b7f6bb0b9e42f7ca9",
+  apiKey: "AIzaSyDFicwQ1fVJm1Oyul7t1Cctr2dnsdrKBb8",
+  authDomain: "cloudp3-test.firebaseapp.com",
+  projectId: "cloudp3-test",
+  storageBucket: "cloudp3-test.firebasestorage.app",
+  messagingSenderId: "1019546303900",
+  appId: "1:1019546303900:web:acba3eda1a46b79f69dc59",
 };
  
 const app = initializeApp(firebaseConfig);

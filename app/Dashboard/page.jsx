@@ -7,6 +7,7 @@ import { useUserAuth } from '../_utils/auth-context';
 import { redirect } from 'next/navigation';
 
 export default function NutritionalInsights() {
+	
 	const { user } = useUserAuth();
 	const [fullData, setFullData] = useState(null);
 	const [loading, setLoading] = useState(false);
